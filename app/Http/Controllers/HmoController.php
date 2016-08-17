@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Library\EntityUtilities as Entity;
+use App\Repositories\HmoRepository as Hmo;
 
-use App\Repositories\UserRepository as User;
-
-class UserController extends Controller
+class HmoController extends Controller
 {
-    protected $user;
-    public function __construct(User $user){
-        $this->middleware('jwt.auth');
-        $this->user = $user;
+    protected $hmo;
+    protected $entity;
+
+    public function __construct(Hmo $hmo, Entity $entity){
+        $this->hmo = $hmo;
+        $this->entity = $entity;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +24,6 @@ class UserController extends Controller
     public function index()
     {
         //
-        return $this->user->all();
-
     }
 
     /**
@@ -33,7 +34,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Get All Data coming from the client
+        $data = $request->all();
+        $hmo = $this->entity->createNewEntity($data, $this->hmo);
+        return $hmo;
     }
 
     /**

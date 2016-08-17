@@ -10,7 +10,6 @@
 
     use JWTAuth;
     use App\User;
-    use App\Http\Requests;
     use League\Fractal\Manager;
     use Illuminate\Http\Request;
     use League\Fractal\Resource\Item;

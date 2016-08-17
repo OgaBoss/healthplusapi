@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'api-v1'], function () {
+Route::group(['prefix' => '/api/v1'], function () {
     Route::post('authenticate', [
         'as' => 'authenticate',
         'uses' => 'LoginController@authenticate'
@@ -27,6 +27,10 @@ Route::group(['prefix' => 'api-v1'], function () {
     ]);
 
     Route::resource('user', 'UserController', [
+        'only' => ['index', 'store', 'show', 'update','destroy']
+    ]);
+
+    Route::resource('hmo', 'HmoController', [
         'only' => ['index', 'store', 'show', 'update','destroy']
     ]);
 });
