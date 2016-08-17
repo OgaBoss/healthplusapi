@@ -31,7 +31,16 @@
             return $model->create($data);
         }
 
-        public function attachUserToNewEntity($data, $model){
-          // $newEntity =  $this->createNewEntity($data, $model);
+        /**
+         * @param $user
+         * @param $entity_id
+         * @param $entity
+         */
+        public function attachUserToNewEntity($user, $entity_id, $entity){
+            if($entity == 'hmo'){
+                $status = $user->hmo()->attach($entity_id);
+                return $status;
+            }
+
         }
     }

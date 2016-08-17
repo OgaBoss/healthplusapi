@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Hash;
+use App\Entity;
+use App\Library\EntityUtilities;
 use App\Repositories\UserRepository as User;
 
 class UserController extends Controller
 {
     protected $user;
-    public function __construct(User $user){
+    protected $entityUtilities;
+    public function __construct(User $user, EntityUtilities $entityUtilities){
         $this->middleware('jwt.auth');
         $this->user = $user;
+        $this->entityUtilities = $entityUtilities;
     }
     /**
      * Display a listing of the resource.
@@ -33,7 +38,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Get all data to create a new user
+        $data = [
+            'role_id' => $request->input('role_id'),
+            'email' => $request->input('email'),
+            'entity_id' => $request->input('entity_id'),
+            'password' => Hash::make($request->input('password')),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'activated' => 0
+        ];
+
+        // Create the User
+        $returnedData = $this->user->create($data);
+
+        //dd($returnedData);
+
+        // Get Entity to attach
+        $entity = $request->input('entity_name');
+        $entity_id = $request->input('entity_id');
+
+
+        // Attach User to an Entity
+        $status = $this->entityUtilities->attachUserToNewEntity($returnedData, $entity_id, $entity);
+        return $status;
     }
 
     /**

@@ -12,6 +12,7 @@ class HmoController extends Controller
     protected $entity;
 
     public function __construct(Hmo $hmo, Entity $entity){
+        $this->middleware('jwt.auth');
         $this->hmo = $hmo;
         $this->entity = $entity;
     }

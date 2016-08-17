@@ -11,7 +11,8 @@
         "barryvdh/laravel-cors": "^0.8.1",
         "bosnadev/repositories": " 0.*",
         "league/fractal": "^0.13.0",
-        "mpociot/laravel-apidoc-generator": "^1.5"
+        "mpociot/laravel-apidoc-generator": "^1.5",
+        "doctrine/dbal": "~2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

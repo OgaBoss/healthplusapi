@@ -19,7 +19,8 @@
          */
         protected $defaultIncludes = [
             'role',
-            'entity'
+            'entity',
+            'hmo'
         ];
 
         /**
@@ -50,5 +51,9 @@
          */
         public function includeEntity(User $user){
             return $this->item($user->entity, new EntityTransformer);
+        }
+
+        public function includeHmo(User $user){
+            return $this->collection($user->hmo, new HmoTransformer);
         }
     }
