@@ -14,9 +14,14 @@ class RenameHmosIdColumn extends Migration
     {
         //
         Schema::table('hmos_users', function(Blueprint $table) {
-            Schema::disableForeignKeyConstraints();
-            $table->renameColumn('hmos_id', 'hmo_id')->unsigned();
-            Schema::enableForeignKeyConstraints();
+            $table->dropForeign('hmos_users_hmos_id_foreign');
+            $table->renameColumn('hmos_id', 'hmo_id');
+
+            $table->foreign('hmo_id')
+                ->references('id')
+                ->on('hmos');
+
+
         });
     }
 
