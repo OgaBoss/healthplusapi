@@ -14,7 +14,7 @@ class RenameHmosIdColumn extends Migration
     {
         //
         Schema::table('hmos_users', function(Blueprint $table) {
-            $table->renameColumn('hmos_id', 'hmo_id');
+            $table->renameColumn('hmos_id', 'hmo_id')->unsigned();
         });
     }
 
