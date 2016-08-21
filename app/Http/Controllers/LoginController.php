@@ -42,7 +42,7 @@
 
             try{
                 if(!$token = JWTAuth::attempt($credentials)){
-                    return response()->json(['error' => 'invalid credentials'], 401);
+                    return response()->json(['error' => 'Invalid Credentials'], 401);
                 }
             }catch (JWTException $e){
                 // something went wrong whilst attempting to encode the token

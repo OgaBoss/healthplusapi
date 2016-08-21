@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => '/api/v1'], function () {
+Route::group(['prefix' => '/api/v1', 'middleware' => 'cors'], function () {
     Route::post('authenticate', [
         'as' => 'authenticate',
         'uses' => 'LoginController@authenticate'
@@ -26,6 +26,10 @@ Route::group(['prefix' => '/api/v1'], function () {
         'uses' => 'LoginController@getAuthenticatedUser'
     ]);
 
+    Route::post('parseCsv',[
+        'as' => 'parseCsv',
+        'uses' => 'CsvController@store'
+    ]);
     Route::resource('user', 'UserController', [
         'only' => ['index', 'store', 'show', 'update','destroy']
     ]);
