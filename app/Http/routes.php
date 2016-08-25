@@ -34,6 +34,21 @@ Route::group(['prefix' => '/api/v1', 'middleware' => 'cors'], function () {
         'only' => ['index', 'store', 'show', 'update','destroy']
     ]);
 
+    Route::get('country', [
+        'as' => 'country',
+        'uses' => 'PlacesController@getCountry'
+    ]);
+
+    Route::get('state', [
+        'as' => 'state',
+        'uses' => 'PlacesController@getState'
+    ]);
+
+    Route::get('lgs', [
+        'as' => 'lgs',
+        'uses' => 'PlacesController@getLgs'
+    ]);
+
     Route::resource('hmo', 'HmoController', [
         'only' => ['index', 'store', 'show', 'update','destroy']
     ]);

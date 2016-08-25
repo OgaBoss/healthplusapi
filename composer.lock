@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "726119191082c6239ab7c1879c83eb4f",
-    "content-hash": "f6943caeb885d1fceaf51af887bb43b9",
+    "hash": "9fb857016981fd98b690af9597785307",
+    "content-hash": "6176b46006b27b8d4e4c42c2243b62bb",
     "packages": [
         {
             "name": "barryvdh/laravel-cors",
-            "version": "v0.8.1",
+            "version": "v0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-cors.git",
-                "reference": "1998c8c7295d167cb744bbc45fbefad9b86b836c"
+                "reference": "bc7f40a71221b46d24971da7f0230ed4a75a18c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-cors/zipball/1998c8c7295d167cb744bbc45fbefad9b86b836c",
-                "reference": "1998c8c7295d167cb744bbc45fbefad9b86b836c",
+                "url": "https://api.github.com/repos/barryvdh/laravel-cors/zipball/bc7f40a71221b46d24971da7f0230ed4a75a18c6",
+                "reference": "bc7f40a71221b46d24971da7f0230ed4a75a18c6",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,7 @@
                 "symfony/http-kernel": "~2.7|~3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.2"
+                "phpunit/phpunit": "^4.8|^5.2"
             },
             "type": "library",
             "extra": {
@@ -58,25 +58,27 @@
                 "crossdomain",
                 "laravel"
             ],
-            "time": "2016-06-22 06:36:34"
+            "time": "2016-08-11 08:46:01"
         },
         {
             "name": "bosnadev/repositories",
-            "version": "0.12",
+            "version": "0.13",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Bosnadev/Repositories.git",
-                "reference": "9444fab1e52463e9f1a56b3da450f3c531d4e9be"
+                "url": "https://github.com/bosnadev/repository.git",
+                "reference": "3a289a137e27ac6b795852a0d72c509a51b70a26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bosnadev/Repositories/zipball/9444fab1e52463e9f1a56b3da450f3c531d4e9be",
-                "reference": "9444fab1e52463e9f1a56b3da450f3c531d4e9be",
+                "url": "https://api.github.com/repos/bosnadev/repository/zipball/3a289a137e27ac6b795852a0d72c509a51b70a26",
+                "reference": "3a289a137e27ac6b795852a0d72c509a51b70a26",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "5.*",
-                "illuminate/support": "5.*",
+                "illuminate/console": "^5.2",
+                "illuminate/database": "^5.2",
+                "illuminate/filesystem": "^5.2",
+                "illuminate/support": "^5.2",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -90,21 +92,25 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Bosnadev\\Repositories\\": "src/"
+                    "Bosnadev\\": "src/Bosnadev/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
-                {
-                    "name": "Mirza Pasic",
-                    "email": "mirza.pasic@edu.fit.ba"
-                },
                 {
                     "name": "Maarten Paauw",
                     "email": "maartenpaauw@gmail.com"
+                },
+                {
+                    "name": "Mirza Pasic",
+                    "email": "mirza@bosnadev.com"
                 }
             ],
             "description": "Laravel Repositories",
+            "homepage": "https://bosnadev.com",
             "keywords": [
                 "database",
                 "eloquent",
@@ -112,7 +118,7 @@
                 "repositories",
                 "repository"
             ],
-            "time": "2016-04-08 21:35:31"
+            "time": "2016-08-19 13:21:55"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -785,6 +791,177 @@
             "time": "2016-04-29 12:21:54"
         },
         {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f808fba627f2c5b69e2501217bf31af349c1427",
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.3.1",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.0",
+                "psr/log": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2016-07-15 17:22:37"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/c10d860e2a9595f8883527fa0021c7da9e65f579",
+                "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-05-18 16:56:05"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "PSR-7 message implementation",
+            "keywords": [
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2016-06-24 23:00:38"
+        },
+        {
             "name": "ircmaxell/random-lib",
             "version": "v1.1.0",
             "source": {
@@ -1026,16 +1203,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.43",
+            "version": "v5.2.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5490b8f00564bb60839002f86828e27edd1e5610"
+                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5490b8f00564bb60839002f86828e27edd1e5610",
-                "reference": "5490b8f00564bb60839002f86828e27edd1e5610",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f24b7acfb494437ef00bdd062bed61eb21535546",
+                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546",
                 "shasum": ""
             },
             "require": {
@@ -1116,7 +1293,7 @@
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
                 "symfony/css-selector": "Required to use some of the crawler integration testing tools (2.8.*|3.0.*).",
                 "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (2.8.*|3.0.*).",
-                "symfony/psr-http-message-bridge": "Required to psr7 bridging features (0.2.*)."
+                "symfony/psr-http-message-bridge": "Required to use psr7 bridging features (0.2.*)."
             },
             "type": "library",
             "extra": {
@@ -1152,7 +1329,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-10 12:23:59"
+            "time": "2016-08-23 13:03:29"
         },
         {
             "name": "laravelcollective/bus",
@@ -1618,16 +1795,16 @@
         },
         {
             "name": "mpociot/laravel-apidoc-generator",
-            "version": "1.5.2",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpociot/laravel-apidoc-generator.git",
-                "reference": "8d9a85ab27259358b399b554d6cc4b2f4486e1e2"
+                "reference": "7174737bdb9595974e5ca87d9ffbcb6691a01981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpociot/laravel-apidoc-generator/zipball/8d9a85ab27259358b399b554d6cc4b2f4486e1e2",
-                "reference": "8d9a85ab27259358b399b554d6cc4b2f4486e1e2",
+                "url": "https://api.github.com/repos/mpociot/laravel-apidoc-generator/zipball/7174737bdb9595974e5ca87d9ffbcb6691a01981",
+                "reference": "7174737bdb9595974e5ca87d9ffbcb6691a01981",
                 "shasum": ""
             },
             "require": {
@@ -1660,14 +1837,14 @@
                     "email": "m.pociot@gmail.com"
                 }
             ],
-            "description": "Generate beautiful API documentation from your Laravel / Lumen application",
+            "description": "Generate beautiful API documentation from your Laravel application",
             "homepage": "http://github.com/mpociot/laravel-apidoc-generator",
             "keywords": [
                 "api",
                 "documentation",
                 "laravel"
             ],
-            "time": "2016-08-09 13:41:04"
+            "time": "2016-08-22 12:15:48"
         },
         {
             "name": "mpociot/reflection-docblock",
@@ -2155,6 +2332,56 @@
                 "x509"
             ],
             "time": "2015-01-28 21:50:33"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -4504,23 +4731,23 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "1.3.7",
+            "version": "1.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716"
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4e8f0da10ac5802913afc151413bc8c53b6c2716",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/be2c607e43ce4c89ecd60e75c6a85c126e754aea",
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
@@ -4550,7 +4777,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-05-17 03:18:57"
+            "time": "2016-08-18 05:49:44"
         },
         {
             "name": "sebastian/exporter",
