@@ -27,7 +27,7 @@ class AddCreatedByToPharmaciesTable extends Migration
     {
         Schema::table('pharmacies', function (Blueprint $table) {
             //
-            $table->string('created_by')->default('');
+            $table->dropColumn('create_by');
         });
     }
 }

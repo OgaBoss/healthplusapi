@@ -42,7 +42,7 @@ class UserController extends Controller
         $data = [
             'role_id' => $request->input('role_id'),
             'email' => $request->input('email'),
-            'entity_id' => $request->input('entity_id'),
+            'entity_id' => $request->input('entity_type_id'),
             'password' => Hash::make($request->input('password')),
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
@@ -52,16 +52,8 @@ class UserController extends Controller
         // Create the User
         $returnedData = $this->user->create($data);
 
-        //dd($returnedData);
-
         // Get Entity to attach
-        $entity = $request->input('entity_name');
-        $entity_id = $request->input('entity_id');
-
-
-        // Attach User to an Entity
-        $status = $this->entityUtilities->attachUserToNewEntity($returnedData, $entity_id, $entity);
-        return $status;
+        return $this->attachUser( $request, $returnedData );
     }
 
     /**
@@ -96,5 +88,27 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     * @param         $returnedData
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function attachUser( Request $request, $returnedData )
+    {
+        $entity = $request->input( 'entity_name' );
+        $entity_id = $request->input( 'entity_id' );
+
+
+        // Attach User to an Entity
+        $status = $this->entityUtilities->attachUserToNewEntity( $returnedData, $entity_id, $entity );
+        if ( $status )
+        {
+            return response()->json( ['success' => 'User Attached'], 200 );
+        } else
+        {
+            return response()->json( ['error' => 'User not Attached'], 500 );
+        }
     }
 }

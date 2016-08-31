@@ -35,20 +35,24 @@ class HmoController extends Controller
      */
     public function store(Request $request)
     {
-        //Get All Data coming from the client
-        $data = $request->input('data');
-        dd($data);
         $createData = [];
+
+        //Get All Data coming from the client
+        $data = $request->all();
+
         $createData['name'] = $data['name'];
         $createData['street'] = $data['street'];
         $createData['state'] = $data['state'];
         $createData['city'] = $data['city'];
+        $createData['lg'] = $data['lg'];
         $createData['country'] = 'Nigeria';
         $createData['general_email'] = $data['email'];
         $createData['phone_mobile'] = $data['phone_mobile'];
         $createData['phone_office'] = $data['phone_office'];
+        $createData['created_by'] = $data['creator'];
+        $createData['activated'] = 0;
         $hmo = $this->entity->createNewEntity($createData, $this->hmo);
-        return $hmo;
+        return response()->json(['success' => $hmo], 200);
     }
 
     /**

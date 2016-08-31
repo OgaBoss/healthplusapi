@@ -27,7 +27,7 @@ class AddCreatedByToHmosTable extends Migration
     {
         Schema::table('hmos', function (Blueprint $table) {
             //
-            $table->string('created_by')->default('');
+            $table->dropColumn('create_by');
         });
     }
 }

@@ -26,7 +26,7 @@ class PlacesController extends Controller
                 'query' => ['appid' => env( 'yahooappid' ), 'format' => 'json'],
             ] );
         }catch(\Exception $ex){
-            return response()->json(['error' => 'Somthing went wrong'], 401);
+            return response()->json(['error' => 'Something went wrong'], 500);
 
         }
 
@@ -51,8 +51,7 @@ class PlacesController extends Controller
                 'query' => ['appid' => env('yahooappid'), 'format' => 'json'],
             ]);
         }catch(\Exception $ex){
-            return response()->json(['error' => 'Somthing went wrong'], 401);
-
+            return response()->json(['error' => 'Something went wrong'], 500);
         }
 
 
@@ -78,7 +77,7 @@ class PlacesController extends Controller
                 'query' => ['appid' => env('yahooappid'), 'format' => 'json'],
             ]);
         }catch(\Exception $ex){
-            return response()->json(['error' => 'Somthing went wrong'], 401);
+            return response()->json(['error' => 'Something went wrong'], 500);
 
         }
 

@@ -35,11 +35,16 @@
          * @param $user
          * @param $entity_id
          * @param $entity
+         * @return Boolean
          */
         public function attachUserToNewEntity($user, $entity_id, $entity){
             if($entity == 'hmo'){
-                $status = $user->hmo()->attach($entity_id);
-                return $status;
+                try{
+                    $user->hmo()->attach($entity_id);
+                    return true;
+                }catch(\Exception $e){
+                    return false;
+                }
             }
 
         }

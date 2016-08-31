@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCreatedByToOrganizationsTable extends Migration
+class AddCreatorToHmosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class AddCreatedByToOrganizationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('organizations', function (Blueprint $table) {
+        Schema::table('hmos', function (Blueprint $table) {
             //
-            $table->string('created_by')->default('');
+            $table->string('logo_url')->default('');
+            $table->boolean('activated')->default(0);
         });
     }
 
@@ -25,9 +26,11 @@ class AddCreatedByToOrganizationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('organizations', function (Blueprint $table) {
+        Schema::table('hmos', function (Blueprint $table) {
             //
-            $table->dropColumn('create_by');
+            $table->dropColumn('logo_url');
+            $table->dropColumn('activated');
+
         });
     }
 }
