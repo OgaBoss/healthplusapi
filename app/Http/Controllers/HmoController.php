@@ -36,6 +36,16 @@ class HmoController extends Controller
     public function store(Request $request)
     {
         $createData = [];
+        $this->validate($request,[
+            'name' => 'required',
+            'street' => 'required',
+            'state' => 'required',
+            'city' => 'required',
+            'lg' => 'required',
+            'country' => 'required',
+            'general_email' => 'required|unique:hmos',
+            'phone_mobile' => 'required|unique:hmos',
+        ]);
 
         //Get All Data coming from the client
         $data = $request->all();
@@ -46,7 +56,7 @@ class HmoController extends Controller
         $createData['city'] = $data['city'];
         $createData['lg'] = $data['lg'];
         $createData['country'] = 'Nigeria';
-        $createData['general_email'] = $data['email'];
+        $createData['general_email'] = $data['general_email'];
         $createData['phone_mobile'] = $data['phone_mobile'];
         $createData['phone_office'] = $data['phone_office'];
         $createData['created_by'] = $data['creator'];

@@ -38,7 +38,7 @@
          * @return Boolean
          */
         public function attachUserToNewEntity($user, $entity_id, $entity){
-            if($entity == 'hmo'){
+            if(strtoupper($entity) == 'HMO'){
                 try{
                     $user->hmo()->attach($entity_id);
                     return true;

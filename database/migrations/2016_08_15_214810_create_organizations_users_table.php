@@ -24,7 +24,8 @@ class CreateOrganizationsUsersTable extends Migration
 
             $table->foreign('organizations_id')
                 ->references('id')
-                ->on('organizations');        });
+                ->on('organizations');
+        });
     }
 
     /**

@@ -53,7 +53,9 @@ class UserController extends Controller
         $returnedData = $this->user->create($data);
 
         // Get Entity to attach
-        return $this->attachUser( $request, $returnedData );
+        $entity = $request->input( 'entity_name' );
+        $entity_id = $request->input( 'entity_id' );
+        return $this->attachUser( $entity, $entity_id, $returnedData );
     }
 
     /**
@@ -91,15 +93,13 @@ class UserController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param         $entity
+     * @param         $entity_id
      * @param         $returnedData
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function attachUser( Request $request, $returnedData )
+    protected function attachUser( $entity, $entity_id, $returnedData )
     {
-        $entity = $request->input( 'entity_name' );
-        $entity_id = $request->input( 'entity_id' );
-
 
         // Attach User to an Entity
         $status = $this->entityUtilities->attachUserToNewEntity( $returnedData, $entity_id, $entity );
