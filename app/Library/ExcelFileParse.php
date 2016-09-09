@@ -34,13 +34,13 @@
                 // check if file extension is .xlsx or .xls
                 $extension_type_array = ['xlsx', 'xls', 'csv'];
                 if(!in_array($file_extension, $extension_type_array)){
-                    return response()->json(['error' => 'Please upload an Excel file only'], 500);
+                    return response()->json(['error' => 'Please upload an Excel/CSV file only'], 500);
                 }
 
                 // Check for file size
                 $file_size = ($this->request->file('csv')->getClientSize()) / 1000;
                 if($file_size > 1000){
-                    return response()->json(['error' => 'Please upload an Excel file of 1MB or less'], 500);
+                    return response()->json(['error' => 'Please upload an Excel/CSV file of 1MB or less'], 500);
                 }
 
                 // create file name

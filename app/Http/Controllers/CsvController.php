@@ -13,7 +13,7 @@ class CsvController extends Controller
     protected $parse;
 
     public function __construct(ExcelFileParse $parse){
-        //$this->middleware('jwt.auth');
+//        $this->middleware('jwt.auth');
         $this->parse = $parse;
     }
     public function store(){
@@ -22,18 +22,12 @@ class CsvController extends Controller
         Excel::load($location, function($reader) {
             // Getting all results
             $results = $reader->toArray();
-            foreach($results as $r){
-                $state = State::where('state',$r['state'])->first();
-                Lga::create([
-                    'state_id' => $state->id,
-                    'lga' => $r['lga'],
-                    'lat' => $r['lat'],
-                    'lon' => $r['lon']
-                ]);
-            }
+            return response()->json(['data' => $results], 200);
         });
+
     }
 
     protected function getFile(){
+
     }
 }
